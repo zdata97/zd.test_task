@@ -1,0 +1,88 @@
+version: 2
+
+sources:
+  - name: presto 
+    tables:
+    
+      - name: autoqa_reviews
+        description: "Table containing Autoqa Reviews data."
+        columns:
+          - name: autoqa_review_id
+            description: "Primary key"
+            tests:
+              - not_null
+              - unique
+          - name: payment_id
+            description: "Foreign key"
+            tests:
+              - not_null
+          - name: payment_token_id
+            description: "Foreign key"
+            tests:
+              - not_null
+          - name: external_ticket_id
+            description: "Foreign key"
+            tests:
+              - not_null
+              
+      - name: autoqa_ratings
+        description: "Table containing Autoqa Ratings data."
+        columns:
+          - name: autoqa_rating_id
+            description: "Primary key"
+            tests:
+              - not_null
+              - unique
+          - name: autoqa_review_id
+            description: "Foreign key"
+            tests:
+              - not_null
+              
+      - name: conversations
+        description: "Table containing Conversations data."
+        columns:
+          - name: external_ticket_id
+            description: "Primary key"
+            tests:
+              - not_null
+          - name: payment_id
+            description: "Foreign key"
+            tests:
+              - not_null
+          - name: payment_token_id
+            description: "Foreign key"
+            tests:
+              - not_null
+              
+      - name: manual_reviews
+        description: "Table containing Manual Reviews data."
+        columns:
+          - name: review_id
+            description: "Primary key"
+            tests:
+              - not_null
+              - unique
+          - name: payment_id
+            description: "Foreign key"
+            tests:
+              - not_null
+          - name: payment_token_id
+            description: "Foreign key"
+            tests:
+              - not_null
+          - name: conversation_external_id
+            description: "Foreign key"
+            tests:
+              - not_null
+              
+      - name: manual_ratings
+        description: "Table containing Manual Ratings data."
+        columns:
+          - name: review_id
+            description: "Primary key"
+            tests:
+              - not_null
+          - name: category_id
+            description: "Primary key"
+            tests:
+              - not_null
