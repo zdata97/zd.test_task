@@ -1,0 +1,5 @@
+---
+selectors:
+  - name: new_etl
+    description: Run new etl
+    definition: +new etl
